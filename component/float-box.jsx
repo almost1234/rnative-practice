@@ -1,12 +1,10 @@
 import React from 'react';
 import { ImageBackground, Image, StyleSheet, TouchableOpacity, View } from 'react-native';
-import "../"
-
-const FloatBox = ({height, width, color, topContent, bottomContent, opacity, onClick}) => {
+const FloatBox = ({height, width, color, topContent, bottomContent, opacity, onClick, image}) => {
     return (
-    <TouchableOpacity style={{padding:10}} onPress={onClick} >
-        <ImageBackground source={require("../assets/apple.jpg")} style={[styles.outerbox, {height: height, width: width, backgroundColor: color}]} imageStyle={{ borderRadius: 40, opacity: opacity}}>
-        <View style={styles.contentBox}>
+    <TouchableOpacity style={{paddingVertical:10}} onPress={onClick} >
+        <ImageBackground source={image} style={[styles.outerbox, {height: height, width: width, backgroundColor: color}]} imageStyle={{width:"100%", borderRadius: 40, opacity: 1}}>
+          <View style={styles.contentBox}>
           <View style={{
               alignSelf: "flex-start"
             }}>
@@ -16,8 +14,8 @@ const FloatBox = ({height, width, color, topContent, bottomContent, opacity, onC
               alignSelf: "flex-end"
             }}>
               {bottomContent}
-        </View>
-    </View>
+            </View>
+          </View>
         </ImageBackground>
         <View style={[styles.innerbox, {height: height, width: width}]}>
         </View>
@@ -29,14 +27,14 @@ const styles = StyleSheet.create({
     outerbox: {
       zIndex: 1,
       borderRadius: 40,
-      alignItems:"center",
-      justifyContent: "center"
+      alignSelf:"center"
     },
     innerbox: {
       position: "absolute",
       top: 20,
       borderRadius: 40,
-      backgroundColor: "rgba(130,130,130, 0.7)"
+      backgroundColor: "rgba(130,130,130, 0.7)",
+      alignSelf:"center"
     },
     contentBox:{
       padding : 15,
