@@ -1,11 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Button } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
-import FloatBox from './component/float-box'
-import LineHeader from './component/line-header'
+import FloatBox from '../component/float-box'
+import LineHeader from '../component/line-header'
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
     return (
         <View style={styles.container}>
         <View style={{flexDirection:"row", margin: 10, justifyContent:"space-between"}}> 
@@ -35,6 +35,7 @@ const HomeScreen = () => {
             bottomContent={
               <MaterialCommunityIcons name="apple" size={24} color="white" />
             }
+            
             />
             <FloatBox 
             height={100} 
@@ -74,6 +75,7 @@ const HomeScreen = () => {
             <FloatBox height={200} width={300} color={"blue"}/>
           </ScrollView>
         </View>
+        <Button onPress={()=>{navigation.navigate("shop")}}>adsasd</Button>
       </View>
     )
 }
