@@ -75,7 +75,9 @@ const HomeScreen = ({navigation}) => {
             <FloatBox height={200} width={300} color={"blue"}/>
           </ScrollView>
         </View>
-        <Button onPress={()=>{navigation.navigate("shop")}}>adsasd</Button>
+        <Button onPress={()=>{navigation.navigate("shop", {
+          test:"yay"
+        })}}>adsasd</Button>
       </View>
     )
 }

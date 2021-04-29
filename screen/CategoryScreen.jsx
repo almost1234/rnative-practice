@@ -1,5 +1,5 @@
-import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import React, {useLayoutEffect} from 'react';
+import { StyleSheet, Text, View, ScrollView, TouchableHighlight } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { Searchbar } from 'react-native-paper';
 import FloatBox from '../component/float-box'
@@ -18,7 +18,29 @@ const data =[
     }
 ]
 
-const CategoryScreen = () => {
+const CategoryScreen = ({route, navigation}) => {
+  
+  useLayoutEffect(() => {
+    navigation.setOptions({
+        headerTitle : (props)=>{
+          return(
+            <View>
+              <Text style={{fontSize: 30, fontWeight: 700}}>Categories</Text>
+            </View>
+          );
+        },
+        headerRight: (props) => {
+          return(
+            <TouchableHighlight onPress={()=>console.log("CLICK")}>
+              <MaterialCommunityIcons name="cart" size={24} color="black" />
+            </TouchableHighlight>
+          )
+        }
+    })
+}, [navigation])
+
+    const {test} = route.params
+    console.log(test);
     const [searchQuery, setSearchQuery] = React.useState('');
 
     const onChangeSearch = query => setSearchQuery(query);
@@ -26,7 +48,9 @@ const CategoryScreen = () => {
     const categoryCard = (category, image)=>{
       const headerText = () => {return(<Text style={{color:"black", fontSize:40, fontWeight:700}}>{category}</Text>);}
   
-      return(<FloatBox height={200} width={"95%"} topContent={headerText()} image={image}/>);
+      return(<FloatBox height={200} width={"95%"} topContent={headerText()} image={image} onClick={() => navigation.navigate(
+        "list", {cat : category}
+      )}/>);
     }
     
     const filterCategory = () => {
@@ -36,13 +60,13 @@ const CategoryScreen = () => {
   
     return (
       <View style={styles.container}>
-        <View style={{flexDirection:"row", margin: 10, justifyContent:"space-between"}}> 
+        {/* <View style={{flexDirection:"row", margin: 10, justifyContent:"space-between"}}> 
           <MaterialCommunityIcons name="face-profile" size={24} color="black" />
           <MaterialCommunityIcons name="cart" size={24} color="black" />
         </View>
         <View style={styles.header}>
           <Text style={{fontSize: 50, fontWeight: 700}}>Categories</Text>
-        </View>
+        </View> */}
         <View>
           <Searchbar
           placeholder="Search"
@@ -60,6 +84,7 @@ const CategoryScreen = () => {
       </View>
     );
 }
+
 
 const styles = StyleSheet.create({
     container: {

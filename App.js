@@ -11,6 +11,7 @@ import CategoryScreen from "./screen/CategoryScreen"
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import CategoryList from './screen/CategoryList';
 
 //insert data sample
 const Stack = createStackNavigator();
@@ -23,9 +24,10 @@ export default function App() {
     // </Stack.Navigator>
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Navigator initialRouteName="Home" >
+        <Stack.Screen options={{headerShown : false}} name="Home" component={HomeScreen} />
         <Stack.Screen name="shop" component={CategoryScreen} />
+        <Stack.Screen name="list" component={CategoryList} />
       </Stack.Navigator>
     </NavigationContainer>
   );
