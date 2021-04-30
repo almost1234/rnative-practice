@@ -4,7 +4,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const Card = ({title, description, image, onClick}) => {
     return (
-      <View style={styles.container}>
+    <View style={styles.container}>
       <Image style={styles.image} source={image} resizeMode={"cover"}/>
       <View style={styles.topArea}>
         <Text style={{color:"white", fontSize: 25, fontWeight: 700}}>{title}</Text>

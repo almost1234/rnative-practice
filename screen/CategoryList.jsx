@@ -35,7 +35,7 @@ const CategoryList = ({navigation, route}) => {
         },
         headerRight: (props) => {
           return(
-            <TouchableHighlight onPress={()=>console.log("CLICK")}>
+            <TouchableHighlight style={{marginRight:5}}onPress={()=>console.log("CLICK")}>
               <MaterialCommunityIcons name="cart" size={24} color="black" />
             </TouchableHighlight>
           )
@@ -48,7 +48,6 @@ const CategoryList = ({navigation, route}) => {
     const [filData, setFilData] = useState([])
     useEffect(() => {
       const convData = data.filter( value => value.category == route.params.cat.toLowerCase());
-      console.log(convData[0].list)
       setFilData(convData[0].list);
     })
 
@@ -83,7 +82,9 @@ const CategoryList = ({navigation, route}) => {
         data={filData}
         renderItem={({item}) => {
           console.log(item);
-          return(<Card title={item.item} description={item.data} image={item.image} />)
+          return(<Card title={item.item} description={item.data} image={item.image} onClick={()=>{
+            navigation.navigate("item", {item : item.item, imageItem : item.image})
+          }}/>)
         }}
         key={item =>item.item}
         />
