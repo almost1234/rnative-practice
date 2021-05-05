@@ -13,9 +13,18 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import CategoryList from './screen/CategoryList';
 import ItemPage from './screen/ItemPage'
+import Cart from "./screen/Cart"
+
+import { createStore, combineReducers} from 'redux'
+import { Provider } from 'react-redux'
+import cartReducer from './redux/reducers/cartReducer'
 
 //insert data sample
 const Stack = createStackNavigator();
+const rootReducer = combineReducers({
+  cart: cartReducer
+})
+const store = createStore(rootReducer)
 
 export default function App() {
 
@@ -24,14 +33,17 @@ export default function App() {
     //   <Stack.Screen name="Feed" component={}/>
     // </Stack.Navigator>
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="home" >
-        <Stack.Screen options={{headerShown : false}} name="Home" component={HomeScreen} />
-        <Stack.Screen name="shop" component={CategoryScreen} />
-        <Stack.Screen name="list" component={CategoryList} />
-        <Stack.Screen name="item" component={ItemPage}/>
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="cart" >
+          <Stack.Screen options={{headerShown : false}} name="Home" component={HomeScreen} />
+          <Stack.Screen name="shop" component={CategoryScreen} />
+          <Stack.Screen name="list" component={CategoryList} />
+          <Stack.Screen name="item" component={ItemPage}/>
+          <Stack.Screen name="cart" component={Cart}/>
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
 

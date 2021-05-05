@@ -3,6 +3,8 @@ import { View, StyleSheet, Image, Text, TouchableOpacity}  from "react-native";
 import { AntDesign } from '@expo/vector-icons'; 
 import DropDownPicker from 'react-native-dropdown-picker';
 import internalData from "../data/internal_data"
+import * as cartActions from "../redux/actions/cartActions"
+import { useSelector, useDispatch } from 'react-redux'
 // const data = [
 //     {label: 'USA', value: 'usa'},
 //     {label: 'UK', value: 'uk'},
@@ -10,6 +12,8 @@ import internalData from "../data/internal_data"
 // ];
 
 const ItemPage = ({navigation, route}) => {
+
+    const dispatch = useDispatch();
 
     const [toggle, setToggle] = useState(false);
     const [item, setItem] = useState({name : "", value : 0});
@@ -69,7 +73,7 @@ const ItemPage = ({navigation, route}) => {
                     <AntDesign name="minuscircle" size={24} color="black" />
                 </TouchableOpacity>
             </View>
-            {parseInt(item.value) != 0 ? <TouchableOpacity style={[styles.addCartButton]}>
+            {parseInt(item.value) != 0 ? <TouchableOpacity style={[styles.addCartButton]} onPress={() => dispatch(cartActions.addToCart(item, amount))}>
                 <Text>{totalAmount()}</Text>
                 <Text>Add to cart</Text>
             </TouchableOpacity> : <TouchableOpacity disabled={true} style={[styles.addCartButton, {backgroundColor:"grey"}]}>
