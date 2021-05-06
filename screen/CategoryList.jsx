@@ -35,7 +35,7 @@ const CategoryList = ({navigation, route}) => {
         },
         headerRight: (props) => {
           return(
-            <TouchableHighlight style={{marginRight:5}}onPress={()=>console.log("CLICK")}>
+            <TouchableHighlight style={{marginRight:5}}onPress={()=>navigation.navigate("cart")}>
               <MaterialCommunityIcons name="cart" size={24} color="black" />
             </TouchableHighlight>
           )

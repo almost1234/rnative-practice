@@ -4,31 +4,33 @@ import InnerPriceBar from "../component/innerPriceBar";
 import PriceBar from "../component/priceBar"
 import { useSelector, useDispatch } from 'react-redux'
 import { SwipeListView } from 'react-native-swipe-list-view';
+import {removeFromCart} from '../redux/actions/cartActions';
 
 
 
 const Cart = ({navigation, route}) => {
 
-    // const data = useState(useSelector(state => state.cart.cart));
-    const data = [{
-        label : "d1",
-        value : "1",
-        amount : 1
-    },
-    {
-        label : "d2",
-        value : "2",
-        amount: 2
-    },
-    {
-        label : "d3",
-        value : "3",
-        amount : 3
-    },{
-        label : "d3",
-        value : "3",
-        amount : 3
-    }]
+    const dispatch = useDispatch();
+    const data = useSelector(state => state.cart.cart);
+    // const data = [{
+    //     label : "d1",
+    //     value : "1",
+    //     amount : 1
+    // },
+    // {
+    //     label : "d2",
+    //     value : "2",
+    //     amount: 2
+    // },
+    // {
+    //     label : "d3",
+    //     value : "3",
+    //     amount : 3
+    // },{
+    //     label : "d3",
+    //     value : "3",
+    //     amount : 3
+    // }]
 
 
     return (
@@ -37,7 +39,7 @@ const Cart = ({navigation, route}) => {
                 data={data}
                 renderItem={PriceBar}
                 renderHiddenItem={(data, rowMap) => (
-                    <InnerPriceBar onClick={()=> console.log("asdasd")}/>
+                    <InnerPriceBar onClick={()=> dispatch(removeFromCart(data.item))}/>
                 )}
                 leftOpenValue={75}
                 rightOpenValue={-150}

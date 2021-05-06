@@ -4,6 +4,7 @@ const initialState = {
     cart: []
 }
 
+//todo maybe add some unique identifier area for the add item and delete item
 export default (state = initialState, action)=> {
     console.log(state);
     switch(action.type){
@@ -11,6 +12,7 @@ export default (state = initialState, action)=> {
             const added = {...action.product, amount : action.itemAmount}
             const altered = state.cart;
             altered.push(added)
+            console.log(altered);
             return {
                 cart: altered
             };
