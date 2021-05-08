@@ -35,7 +35,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="home" >
+        <Stack.Navigator initialRouteName="Home" >
           <Stack.Screen options={{headerShown : false}} name="Home" component={HomeScreen} />
           <Stack.Screen name="shop" component={CategoryScreen} />
           <Stack.Screen name="list" component={CategoryList} />
