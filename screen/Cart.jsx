@@ -60,6 +60,9 @@ const Cart = ({navigation, route}) => {
                     </View>
                 </View>
             </View>
+            <View style={styles.checkout}>
+                  <Text style={{color:"white"}}>Proceed to payment</Text>
+            </View>
         </View>
     )
 }
@@ -67,8 +70,8 @@ const Cart = ({navigation, route}) => {
 const styles = StyleSheet.create({
     total: {
       width: "100%",
-      height: "30%",
-      alignItems:"flex-end"
+      alignItems:"flex-end",
+      alignSelf:"flex-end"
     },
     totalBar:{
       height: 3,
@@ -86,6 +89,16 @@ const styles = StyleSheet.create({
     totalTextBold:{
       marginLeft: "50%",
       fontWeight: 600
+    },
+    checkout:{
+      height: 40,
+      width: "90%",
+      alignItems: "center",
+      justifyContent:"center",
+      alignSelf:"center",
+      backgroundColor: "green",
+      margin: 10,
+      borderRadius:10
     }
   });
 
