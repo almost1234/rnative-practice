@@ -35,8 +35,8 @@ export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home" >
-          <Stack.Screen options={{headerShown : false}} name="Home" component={HomeScreen} />
+        <Stack.Navigator initialRouteName="home" >
+          <Stack.Screen options={{headerShown : false}} name="home" component={HomeScreen} />
           <Stack.Screen name="shop" component={CategoryScreen} />
           <Stack.Screen name="list" component={CategoryList} />
           <Stack.Screen name="item" component={ItemPage}/>

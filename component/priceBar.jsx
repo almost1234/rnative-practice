@@ -9,12 +9,12 @@ const PriceBar = (data) => {
           <View style={{flexDirection:"row", width:"45%", alignItems:"center"}}>
             <Image source={require("../assets/dairy.png")} style={{height: 100, width: "40%"}}></Image>
             <View style={{margin:10}} >
-              <Text style={{fontSize: 25, fontWeight: 600}}>{data.item.label}</Text>
+              <Text style={{fontSize: 25, fontWeight: "600"}}>{data.item.label}</Text>
               <Text style={{fontSize: 12, color:"black"}}>{data.item.amount}</Text>
               <Text style={{fontSize: 12, color:"black"}}></Text>
             </View>
           </View>
-          <Text style={{fontSize: 30, fontWeight: 600, alignSelf:"center", marginRight: 10}}>{data.item.amount}</Text>
+          <Text style={{fontSize: 30, fontWeight: "600", alignSelf:"center", marginRight: 10}}>{data.item.amount}</Text>
         </View>
       </TouchableOpacity>
     )

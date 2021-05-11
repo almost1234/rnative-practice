@@ -25,7 +25,7 @@ const CategoryScreen = ({route, navigation}) => {
         headerTitle : (props)=>{
           return(
             <View>
-              <Text style={{fontSize: 30, fontWeight: 700}}>Categories</Text>
+              <Text style={{fontSize: 30, fontWeight: "700"}}>Categories</Text>
             </View>
           );
         },
@@ -39,14 +39,14 @@ const CategoryScreen = ({route, navigation}) => {
     })
 }, [navigation])
 
-    const {test} = route.params
-    console.log(test);
+    // const {test} = route.params;
+    // console.log(test);
     const [searchQuery, setSearchQuery] = React.useState('');
 
     const onChangeSearch = query => setSearchQuery(query);
   
     const categoryCard = (category, image)=>{
-      const headerText = () => {return(<Text style={{color:"black", fontSize:40, fontWeight:700}}>{category}</Text>);}
+      const headerText = () => {return(<Text style={{color:"black", fontSize:40, fontWeight:"700"}}>{category}</Text>);}
   
       return(<FloatBox height={200} width={"95%"} topContent={headerText()} image={image} onClick={() => navigation.navigate(
         "list", {cat : category}

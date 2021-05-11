@@ -72,8 +72,8 @@ const ItemPage = ({navigation, route}) => {
         <View style={styles.page}>
             <View style={{flexDirection:"row", justifyContent:"space-between",alignItems:"center", margin: 10}}>
             <View>
-                <Text style={{fontSize: 30, fontWeight:500}}>{route.params.item}</Text>
-                <Text style={{fontSize: 15, fontWeight:500}}>{item.value}</Text>
+                <Text style={{fontSize: 30, fontWeight:"500"}}>{route.params.item}</Text>
+                <Text style={{fontSize: 15, fontWeight:"500"}}>{item.value}</Text>
             </View>
             {/* <TouchableOpacity onPress={() => setToggle(!toggle)} >
                 {toggle ? <AntDesign name="caretdown" size={24} color="black" /> : <AntDesign name="caretup" size={24} color="black" />}
@@ -85,7 +85,7 @@ const ItemPage = ({navigation, route}) => {
             } */}
         </View>
         <View style={{marginBottom: 60}}>
-            <Text style={{margin:10, fontSize: 25, fontWeight: 500}}>Choose your type :</Text>
+            <Text style={{margin:10, fontSize: 25, fontWeight: "500"}}>Choose your type :</Text>
             <DropDownPicker
                     items={data}
                     value={item}
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     addCartButton : {
         width:"80%",
         height: 40,
-        position: "fixed",
+        position: "absolute",
         backgroundColor: "red",
         borderRadius: 30,
         flexDirection: "row",

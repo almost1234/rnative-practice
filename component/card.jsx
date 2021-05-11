@@ -7,7 +7,7 @@ const Card = ({title, description, image, onClick}) => {
     <View style={styles.container}>
       <Image style={styles.image} source={image} resizeMode={"cover"}/>
       <View style={styles.topArea}>
-        <Text style={{color:"white", fontSize: 25, fontWeight: 700}}>{title}</Text>
+        <Text style={{color:"white", fontSize: 25, fontWeight: "700"}}>{title}</Text>
       </View>
       <View style={styles.bottomArea}>
         <Text>{description}</Text>
@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     flex: 1,
     position: "absolute",
     margin:10,
+    marginLeft:15,
     backgroundColor: "rgba(130,130,130,0.9)",
     paddingHorizontal: 10,
     borderRadius: 30
@@ -53,8 +54,10 @@ const styles = StyleSheet.create({
     flexDirection:"row",
     justifyContent:"space-between",
     padding: 10,
-    borderRadius: 10,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
     height:"25%",
+    backgroundColor:"white",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,

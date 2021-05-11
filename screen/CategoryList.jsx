@@ -29,7 +29,7 @@ const CategoryList = ({navigation, route}) => {
         headerTitle : (props)=>{
           return(
             <View>
-              <Text style={{fontSize: 30, fontWeight: 700}}>{route.params.cat}</Text>
+              <Text style={{fontSize: 30, fontWeight: "700"}}>{route.params.cat}</Text>
             </View>
           );
         },

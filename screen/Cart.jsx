@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     },
     totalTextBold:{
       marginLeft: "50%",
-      fontWeight: 600
+      fontWeight: "600"
     },
     checkout:{
       height: 40,
