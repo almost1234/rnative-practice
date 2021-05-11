@@ -14,6 +14,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import CategoryList from './screen/CategoryList';
 import ItemPage from './screen/ItemPage'
 import Cart from "./screen/Cart"
+import Map from "./screen/Map"
 
 import { createStore, combineReducers} from 'redux'
 import { Provider } from 'react-redux'
@@ -35,12 +36,13 @@ export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="home" >
+        <Stack.Navigator initialRouteName="map" >
           <Stack.Screen options={{headerShown : false}} name="home" component={HomeScreen} />
           <Stack.Screen name="shop" component={CategoryScreen} />
           <Stack.Screen name="list" component={CategoryList} />
           <Stack.Screen name="item" component={ItemPage}/>
           <Stack.Screen name="cart" component={Cart}/>
+          <Stack.Screen name="map" component={Map}/>
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
