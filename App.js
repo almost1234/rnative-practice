@@ -15,6 +15,7 @@ import CategoryList from './screen/CategoryList';
 import ItemPage from './screen/ItemPage'
 import Cart from "./screen/Cart"
 import Map from "./screen/Map"
+import Test from "./screen/Test"
 
 import { createStore, combineReducers} from 'redux'
 import { Provider } from 'react-redux'
@@ -43,6 +44,7 @@ export default function App() {
           <Stack.Screen name="item" component={ItemPage}/>
           <Stack.Screen name="cart" component={Cart}/>
           <Stack.Screen name="map" component={Map}/>
+          <Stack.Screen name="test" component={Test}/>
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
